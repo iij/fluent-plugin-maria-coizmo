@@ -40,6 +40,9 @@ module Fluent
       end
 
       handler.close
+    rescue => ex
+      $log.error ex
+      exit
     end
 
     private
@@ -48,6 +51,7 @@ module Fluent
       sql = "SELECT sensor_id FROM sensor JOIN host ON sensor.host_id=host.host_id WHERE host.host_name='#{host_name}' AND device='#{device}'" 
       result = handler.query(sql).each do |sensor_id|
         sensor_id.each do |key, val|
+          sleep 0.1
           return val
         end
       end
@@ -56,21 +60,27 @@ module Fluent
         set_sensor(handler, device, host_id, unit)
         get_sensor_id(handler, host_name)
       end
+     rescue => ex
+       raise ex
     end
 
     def get_host_id(handler,host_name)
       sql = "SELECT host_id FROM host WHERE host_name='#{host_name}'"
       handler.query(sql).each do |host_id|
         host_id.each do |key, val|
+          sleep 0.1
           return val
         end
       end
+    rescue => ex
+      raise ex
     end
 
     def set_sensor(handler,device,host_id,unit)
       sql = "INSERT INTO sensor (device, unit, host_id) VALUES ('#{device}', '#{unit}', #{host_id})"
       handler.query(sql)
+    rescue => ex
+      raise ex
     end
-
   end
 end
