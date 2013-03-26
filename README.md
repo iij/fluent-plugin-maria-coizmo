@@ -1,6 +1,10 @@
 # Fluent::Plugin::Maria::Coizmo
 
-TODO: Write a gem description
+    gem install bundler
+    rake build
+    gem install pkg/fluent-plugin-maria-coimzo-0.0.1.gem
+
+    type maria_coizmo
 
 ## Installation
 
