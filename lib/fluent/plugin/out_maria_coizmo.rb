@@ -35,7 +35,7 @@ module Fluent
           @sensor_id_cache["#{data["host"]}.#{data["device"]}"] = sensor_id
         end
 
-        sql = "INSERT INTO data (sensor_id,time,value) VALUES (#{sensor_id},from_unixtime(#{time}),#{data["value"]})"
+        sql = "INSERT INTO data (sensor_id,time,value,leverage) VALUES (#{sensor_id},from_unixtime(#{time}),#{data["value"]},#{data["leverage"]})"
         handler.query(sql)
       end
 
