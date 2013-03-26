@@ -5,7 +5,6 @@ module Fluent
     Plugin.register_output('maria_coizmo', self)
 
     config_param :host, :string
-    config_param :port, :integer, :default => 3306
     config_param :database, :string
     config_param :username, :string
     config_param :password, :string, :default => ''
@@ -22,7 +21,6 @@ module Fluent
     def write(chunk)
       init = {
         :host => @host,
-        :port => @port,
         :username => @username,
         :password => @password,
         :database => @database
