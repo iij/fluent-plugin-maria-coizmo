@@ -1,7 +1,7 @@
 require 'mysql2'
 
 module Fluent
-  class MariaCoizmoOutput < BufferdOutput
+  class MariaCoizmoOutput < BufferedOutput
     Plugin.register_output('maria_coizmo', self)
 
     config_param :host, :string
