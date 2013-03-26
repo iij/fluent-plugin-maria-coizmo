@@ -5,8 +5,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 Gem::Specification.new do |spec|
   spec.name          = "fluent-plugin-maria-coizmo"
   spec.version       = "0.0.1"
-  spec.authors       = ["hiroshi sugimoto"]
-  spec.email         = ["h-sugimoto@iij.ad.jp"]
+  spec.authors       = ["hiro-su"]
+  spec.email         = ["h.sugipon@gmail.com"]
   spec.description   = %q{coizmo maria insert plugin}
   spec.summary       = %q{coizmo maria insert plugin}
   spec.homepage      = ""
